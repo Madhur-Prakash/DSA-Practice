@@ -10,8 +10,8 @@ int lcs(char X [], char Y []){
     int n = strlen(Y);
     int dp[m+1][n+1];
 
-    for (int i =0; i <= m; i++){
-        for (int j =0; j <= n; j++){
+    for (int i = 0; i <= m; i++){
+        for (int j = 0; j <= n; j++){
             if(i == 0 || j == 0){
                 dp[i][j] = 0;
             } else if (X[i-1] == Y[j-1]){
@@ -21,8 +21,17 @@ int lcs(char X [], char Y []){
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
             }
     }
-    return dp[m][n];
 }
+printf("\n");
+printf("dp:");
+printf("\n");
+for(int i=0;i<=m;i++){
+    for(int j=0;j<=n;j++){
+        printf("%d ",dp[i][j]);
+    }
+    printf("\n");
+}
+return dp[m][n];
 }
 
 int main() {
